@@ -1,6 +1,6 @@
 ﻿namespace WorkingWithVisualStudio.Models
 {
-    public class SimpleRepository
+    public class SimpleRepository : IRepository
     {
         private static SimpleRepository sharedRepository = new SimpleRepository();
 
@@ -22,11 +22,10 @@
             {
                 AddProduct(p);
             }
-            products.Add("Error", null);
         }
 
         public IEnumerable<Product> Products => products.Values;
 
-        private void AddProduct(Product p) => products.Add(p.Name, p);
+        public void AddProduct(Product p) => products.Add(p.Name, p);
     }
 }
